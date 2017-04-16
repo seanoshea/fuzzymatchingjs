@@ -3,7 +3,6 @@ var fuzzymatching = require('../fuzzymatching');
 var min = require('../fuzzymatching.min');
 
 describe('Minified version', function () {
-
   it('should export the same functionality as the server-side version', function () {
     for (var key in fuzzymatching) {
       if ({}.hasOwnProperty.call(fuzzymatching, key)) {
