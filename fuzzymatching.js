@@ -20,7 +20,7 @@
 }(this, function () { 'use strict';
 
   function fuzzyMatchPattern(str, pattern, loc, options) {
-    // TODO
+    console.warn(str, pattern, loc, options);
   }
 
   var version = '0.1.0';
