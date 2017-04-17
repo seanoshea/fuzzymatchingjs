@@ -50,7 +50,8 @@
     "mocha": "^3.1.2",
     "rollup": "^0.29.1",
     "rollup-plugin-babel": "^2.5.1",
-    "uglify-js": "^2.6.2"
+    "uglify-js": "^2.6.2",
+    "chai": "3.5.0"
   },
   "author": "Sean O'Shea <oshea.ie@gmail.com>",
   "license": "Apache-2.0",
