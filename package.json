@@ -22,7 +22,7 @@
     "build": "npm run build:browser && npm run build:node",
     "pretest": "npm run lint && npm run build",
     "test": "jest",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --progress --colors"
   },
   "bugs": {
     "url": "http://github.com/seanoshea/fuzzymatchingjs/issues"
