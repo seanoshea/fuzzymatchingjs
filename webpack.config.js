@@ -4,19 +4,18 @@ var webpack = require('webpack');
 module.exports = {
   entry: [
     'babel-polyfill',
-    './src',
-    'webpack-dev-server/client?http://localhost:8080'
+    './src'
   ],
   output: {
-      path: __dirname,
-      filename: 'main.js'
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
   },
   devtool: 'source-map',
   module: {
     loaders: [
       { 
         test: /\.js$/,
-        include: path.join(__dirname, 'src/lib'),
+        include: path.join(__dirname, './src/lib'),
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
