@@ -13,3 +13,10 @@ fuzzymatchingjs
 
 [coveralls-url]: https://coveralls.io/r/seanoshea/fuzzymatchingjs
 [coveralls-image]: http://img.shields.io/coveralls/seanoshea/fuzzymatchingjs/develop.svg
+
+# Setup
+1. Install the 7.x version of node using https://github.com/creationix/nvm.
+2. Install yarn at https://yarnpkg.com/en/. You'll probably need homebrew first (https://brew.sh).
+3. Run `npm install`
+4. Run `npm run test` to run the unit tests for the library. Ensure that they pass before proceeding with any other steps.
+5. Run `yarn start` to run the dev server for the library.
