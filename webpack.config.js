@@ -7,14 +7,16 @@ module.exports = {
     './src'
   ],
   output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js',
-      library: 'fuzzymatching'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    library: 'fuzzymatching',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   devtool: 'source-map',
   module: {
     loaders: [
-      { 
+      {
         test: /\.js$/,
         include: path.join(__dirname, './src/lib'),
         exclude: /node_modules/,
