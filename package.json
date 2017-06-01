@@ -12,7 +12,7 @@
     "fuzzymatching.min.js"
   ],
   "scripts": {
-    "lint": "eslint src test",
+    "lint": "eslint src/lib/*.js test",
     "clean:node": "rm -rf index.js lib",
     "clean:browser": "rm -rf fuzzymatching*.js",
     "clean": "yarn clean:node && yarn clean:browser",
