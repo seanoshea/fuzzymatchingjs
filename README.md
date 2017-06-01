@@ -31,7 +31,7 @@ https://github.com/prettier/prettier is used to format the source code in a git 
 jsfiles=$(git diff --cached --name-only --diff-filter=ACM | grep '\.jsx\?$' | tr '\n' ' ')
 [ -z "$jsfiles" ] && exit 0
 
-diffs=$(yarn prettier --single-quote -l $jsfiles)
+diffs=$(node_modules/.bin/prettier --single-quote -l $jsfiles)
 [ -z "$diffs" ] && exit 0
 
 echo >&2 "Javascript files must be formatted with prettier. Please run:"
