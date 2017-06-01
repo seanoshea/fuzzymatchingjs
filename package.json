@@ -24,6 +24,7 @@
     "generate-docs": "jsdoc -c ./conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src/**",
     "pretest": "yarn lint && yarn build",
     "test": "jest --coverage --coveragePathIgnorePatterns *.min.js",
+    "coveralls": "jest --config jest_coveralls.json --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "start": "webpack-dev-server --progress --colors"
   },
   "bugs": {

@@ -1,0 +1,10 @@
+{
+  "testMatch": ["<rootDir>/test/*.js"],
+  "moduleFileExtensions": ["js"],
+  "collectCoverageFrom": [
+    "src/lib/*.js",
+    "fuzzymatching.js",
+    "!src/index.js",
+    "!lib/*.js"
+  ]
+}
