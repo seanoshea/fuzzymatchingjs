@@ -1,16 +1,17 @@
 function matchAlphabet(pattern) {
-  var s = {};
-  for (var i = 0; i < pattern.length; i++) {
+  const s = {};
+  for (let i = 0, l = pattern.length; i < l; i += 1) {
     s[pattern.charAt(i)] = 0;
   }
-  for (var i = 0; i < pattern.length; i++) {
+  for (let i = 0, l = pattern.length; i < l; i += 1) {
     s[pattern.charAt(i)] |= 1 << (pattern.length - i - 1);
   }
   return s;
 }
 
 function matchBitapScore(e, x, loc, pattern, matchDistance) {
-  var accuracy = e / pattern.length, proximity = Math.abs(loc - x);
+  const accuracy = e / pattern.length;
+  const proximity = Math.abs(loc - x);
   if (!matchDistance) {
     return proximity ? 1.0 : accuracy;
   }
@@ -18,23 +19,26 @@ function matchBitapScore(e, x, loc, pattern, matchDistance) {
 }
 
 function matchBitapOfText(text, pattern, loc, options) {
-  var s = matchAlphabet(pattern), matchDistance = (options && options.distance) || 1000, matchThreshold = (options && options.threshold) || 0.5;
-  var scoreThreshold = matchThreshold;
-  var bestLoc = text.indexOf(pattern, loc);
-  if (bestLoc != -1) {
+  const s = matchAlphabet(pattern);
+  const matchDistance = (options && options.distance) || 1000;
+  const matchThreshold = (options && options.threshold) || 0.5;
+  let scoreThreshold = matchThreshold;
+  let bestLoc = text.indexOf(pattern, loc);
+  if (bestLoc !== -1) {
     scoreThreshold = Math.min(matchBitapScore(0, bestLoc, loc, pattern, matchDistance), scoreThreshold);
     bestLoc = text.lastIndexOf(pattern, loc + pattern.length);
-    if (bestLoc != -1) {
+    if (bestLoc !== -1) {
       scoreThreshold = Math.min(matchBitapScore(0, bestLoc, loc, pattern, matchDistance), scoreThreshold);
     }
   }
-  var matchmask = 1 << (pattern.length - 1);
+  const matchmask = 1 << (pattern.length - 1);
   bestLoc = -1;
 
-  var binMin, binMid;
-  var binMax = pattern.length + text.length;
-  var lastRd;
-  for (var d = 0; d < pattern.length; d++) {
+  let binMin;
+  let binMid;
+  let binMax = pattern.length + text.length;
+  let lastRd;
+  for (let d = 0; d < pattern.length; d += 1) {
     binMin = 0;
     binMid = binMax;
     while (binMin < binMid) {
@@ -46,16 +50,16 @@ function matchBitapOfText(text, pattern, loc, options) {
       binMid = Math.floor((binMax - binMin) / 2 + binMin);
     }
     binMax = binMid;
-    var start = Math.max(1, loc - binMid + 1);
-    var finish = Math.min(loc + binMid, text.length) + pattern.length;
+    let start = Math.max(1, loc - binMid + 1);
+    let finish = Math.min(loc + binMid, text.length) + pattern.length;
     if (!finish) {
       finish = 0;
     }
 
-    var rd = Array(finish + 2);
+    const rd = Array(finish + 2);
     rd[finish + 1] = (1 << d) - 1;
-    for (var j = finish; j >= start; j--) {
-      var charMatch = s[text.charAt(j - 1)];
+    for (let j = finish; j >= start; j -= 1) {
+      const charMatch = s[text.charAt(j - 1)];
       if (d === 0) {
         rd[j] = ((rd[j + 1] << 1) | 1) & charMatch;
       } else {
@@ -64,7 +68,7 @@ function matchBitapOfText(text, pattern, loc, options) {
                 lastRd[j + 1];
       }
       if (rd[j] & matchmask) {
-        var score = matchBitapScore(d, j - 1, loc, pattern, matchDistance);
+        const score = matchBitapScore(d, j - 1, loc, pattern, matchDistance);
         if (score <= scoreThreshold) {
           scoreThreshold = score;
           bestLoc = j - 1;
