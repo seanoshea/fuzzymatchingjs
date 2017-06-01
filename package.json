@@ -24,7 +24,7 @@
     "generate-docs": "jsdoc -c ./conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src/**",
     "pretest": "yarn lint && yarn build",
     "test": "jest --coverage --coveragePathIgnorePatterns *.min.js",
-    "coveralls": "jest --config jest_coveralls.json --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info",
     "start": "webpack-dev-server --progress --colors"
   },
   "bugs": {
@@ -40,6 +40,16 @@
     "string",
     "matching"
   ],
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/index.js",
+    "testPathIgnorePatterns": [
+      "src/index.js"
+    ],
+    "collectCoverageOnlyFrom": {
+      "fuzzymatching.js": true
+    },
+    "automock": true
+  },
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.24.1",
