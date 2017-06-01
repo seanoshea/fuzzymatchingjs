@@ -23,7 +23,7 @@
     "compressed-size": "echo 'fuzzymatching.min.js gzipped will weigh' $(cat fuzzymatching.min.js | gzip -9 | wc -c | pretty-bytes)",
     "generate-docs": "jsdoc -c ./conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src/**",
     "pretest": "yarn lint && yarn build",
-    "test": "jest --coverage",
+    "test": "jest --coverage --coveragePathIgnorePatterns *.min.js",
     "start": "webpack-dev-server --progress --colors"
   },
   "bugs": {

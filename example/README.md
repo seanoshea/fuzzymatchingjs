@@ -1,4 +1,4 @@
-# fuzzymatchingjs example app
+# FuzzyMatchingJS example app
 
 # Setup
 1. Install the 7.x version of node using https://github.com/creationix/nvm.
