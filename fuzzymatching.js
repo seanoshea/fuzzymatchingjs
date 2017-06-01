@@ -43,8 +43,9 @@ function fuzzyMatchPattern(text, pattern, loc, options) {
   } else if (!text.length) {
     return -1;
   } else if (text.substring(loc, loc + pattern.length) === pattern) {
-    return loc;
+    return location;
   }
+  console.warn('do I get in here?');
   return matchBitapOfText(text, pattern, location, options);
 }
 
