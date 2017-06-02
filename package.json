@@ -21,7 +21,7 @@
     "build:node": "babel src -d . --presets es2015 --plugins add-module-exports",
     "build": "yarn build:browser && yarn build:node",
     "compressed-size": "echo 'fuzzymatching.min.js gzipped will weigh' $(cat fuzzymatching.min.js | gzip -9 | wc -c | pretty-bytes)",
-    "generate-docs": "jsdoc -c ./conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src/**",
+    "generate-docs": "jsdoc -c ./docs/conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src",
     "pretest": "yarn lint && yarn build",
     "test": "jest --coverage --coveragePathIgnorePatterns *.min.js",
     "coveralls": "jest --config jest_coveralls.json --coverage",

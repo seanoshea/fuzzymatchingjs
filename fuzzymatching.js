@@ -114,6 +114,10 @@ function matchBitapOfText(text, pattern, loc, options) {
  * @arg {Object} options
  * @arg {String} [options.xyz] - some additional options.
  */
+
+/**
+ * Represents a book.
+ */
 function fuzzyMatchPattern(text, pattern, loc, options) {
   if (text == null || pattern == null) {
     throw new Error('Null input. (fuzzyMatchPattern)');
