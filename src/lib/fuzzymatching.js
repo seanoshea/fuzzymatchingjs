@@ -47,10 +47,10 @@ function matchBitapOfText(text, pattern, loc, options) {
       } else {
         binMax = binMid;
       }
-      binMid = Math.floor((binMax - binMin) / 2 + binMin);
+      binMid = Math.floor(((binMax - binMin) / 2) + binMin);
     }
     binMax = binMid;
-    let start = Math.max(1, loc - binMid + 1);
+    let start = Math.max(1, (loc - binMid) + 1);
     let finish = Math.min(loc + binMid, text.length) + pattern.length;
     if (!finish) {
       finish = 0;
@@ -73,7 +73,7 @@ function matchBitapOfText(text, pattern, loc, options) {
           scoreThreshold = score;
           bestLoc = j - 1;
           if (bestLoc > loc) {
-            start = Math.max(1, 2 * loc - bestLoc);
+            start = Math.max(1, (2 * loc) - bestLoc);
           } else {
             break;
           }
