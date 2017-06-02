@@ -1,4 +1,4 @@
-const fuzzyMatching = require('../index');
+const fuzzyMatching = require('../index').fuzzyMatching;
 
 describe('Exports', () => {
   test('should export fuzzymatching functions', () => {

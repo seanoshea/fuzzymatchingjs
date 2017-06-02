@@ -1,4 +1,4 @@
-const fuzzyMatching = require('../index');
+const fuzzyMatching = require('../index').fuzzyMatching;
 
 describe('Fuzzy Matching Patterns', () => {
   describe('Error Handling', () => {

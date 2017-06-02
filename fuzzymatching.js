@@ -108,15 +108,14 @@ function matchBitapOfText(text, pattern, loc, options) {
 }
 
 /**
- * @arg {String} text - the text to search through for the pattern
- * @arg {String} pattern - the pattern within the text to search for
- * @arg {String} loc - where in the text to start the search
+ * Executes a fuzzy match on the `text` parameter using the `pattern` parameter.
+ * @arg {String} text - the text to search through for the pattern.
+ * @arg {String} pattern - the pattern within the text to search for.
+ * @arg {String} loc - defines the approximate position in the text where the pattern is expected to be found.
  * @arg {Object} options
- * @arg {String} [options.xyz] - some additional options.
- */
-
-/**
- * Represents a book.
+ * @arg {String} [options.distance] - Defines where in the text to look for the pattern.
+ * @arg {String} [options.threshold] - Defines how strict you want to be when fuzzy matching. A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose understanding of whether a match has been found.
+ * @return An Int indicating where the fuzzy matched pattern can be found in the text.
  */
 function fuzzyMatchPattern(text, pattern, loc, options) {
   if (text == null || pattern == null) {
@@ -133,10 +132,25 @@ function fuzzyMatchPattern(text, pattern, loc, options) {
   return matchBitapOfText(text, pattern, location, options);
 }
 
-var version = '0.1.0';
+function confidenceScore(text, pattern) {
+  var loc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  var distance = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1000;
 
-exports.version = version;
-exports.fuzzyMatchPattern = fuzzyMatchPattern;
+  // start at a low threshold and work our way up
+  for (var index = 1; index < 1000; index += 1) {
+    var threshold = index / 1000;
+    if (fuzzyMatchPattern(text, pattern, loc, { threshold: threshold, distance: distance }) !== -1) {
+      return threshold;
+    }
+  }
+  return -1;
+}
+
+var fuzzyMatching = { confidenceScore: confidenceScore, fuzzyMatchPattern: fuzzyMatchPattern };
+
+fuzzyMatching.version = '0.1.0';
+
+exports.fuzzyMatching = fuzzyMatching;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

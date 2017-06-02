@@ -90,7 +90,6 @@ function matchBitapOfText(text, pattern, loc, options) {
 
 /**
  * Executes a fuzzy match on the `text` parameter using the `pattern` parameter.
- * 
  * @arg {String} text - the text to search through for the pattern.
  * @arg {String} pattern - the pattern within the text to search for.
  * @arg {String} loc - defines the approximate position in the text where the pattern is expected to be found.
@@ -114,4 +113,23 @@ function fuzzyMatchPattern(text, pattern, loc, options) {
   return matchBitapOfText(text, pattern, location, options);
 }
 
-export default fuzzyMatchPattern;
+/**
+ * Provides a confidence score relating to how likely the `pattern` parameter is to be found in the `text` parameter.
+ * @arg {String} text - the text to search through for the pattern.
+ * @arg {String} pattern - the pattern to search for.
+ * @arg {Int} loc - the index in the element from which to search.
+ * @arg {Int} distance - determines how close the match must be to the fuzzy location. See `loc` parameter.
+ * @return A number which indicates how confident we are that the pattern can be found in the host string. A low value (0.001) indicates that the pattern is likely to be found. A high value (0.999) indicates that the pattern is not likely to be found.
+ */
+function confidenceScore(text, pattern, loc = 0, distance = 1000) {
+  // start at a low threshold and work our way up
+  for (let index = 1; index < 1000; index += 1) {
+    const threshold = index / 1000;
+    if (fuzzyMatchPattern(text, pattern, loc, { threshold, distance }) !== -1) {
+      return threshold;
+    }
+  }
+  return -1;
+}
+
+export default { confidenceScore, fuzzyMatchPattern };
