@@ -39,7 +39,10 @@ function matchBitapScore(e, x, loc, pattern, matchDistance) {
   return accuracy + proximity / matchDistance;
 }
 
-function matchBitapOfText(text, pattern, loc, options) {
+function matchBitapOfText(text, pattern) {
+  var loc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  var options = arguments[3];
+
   var s = matchAlphabet(pattern);
   var matchDistance = options && options.distance || 1000;
   var matchThreshold = options && options.threshold || 0.5;
@@ -117,7 +120,10 @@ function matchBitapOfText(text, pattern, loc, options) {
  * @arg {String} [options.threshold] - Defines how strict you want to be when fuzzy matching. A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose understanding of whether a match has been found.
  * @return An Int indicating where the fuzzy matched pattern can be found in the text.
  */
-function fuzzyMatchPattern(text, pattern, loc, options) {
+function fuzzyMatchPattern(text, pattern) {
+  var loc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  var options = arguments[3];
+
   if (text == null || pattern == null) {
     throw new Error('Null input. (fuzzyMatchPattern)');
   }
@@ -132,6 +138,14 @@ function fuzzyMatchPattern(text, pattern, loc, options) {
   return matchBitapOfText(text, pattern, location, options);
 }
 
+/**
+ * Provides a confidence score relating to how likely the `pattern` parameter is to be found in the `text` parameter.
+ * @arg {String} text - the text to search through for the pattern.
+ * @arg {String} pattern - the pattern to search for.
+ * @arg {Int} loc - the index in the element from which to search.
+ * @arg {Int} distance - determines how close the match must be to the fuzzy location. See `loc` parameter.
+ * @return A number which indicates how confident we are that the pattern can be found in the host string. A low value (0.001) indicates that the pattern is likely to be found. A high value (0.999) indicates that the pattern is not likely to be found.
+ */
 function confidenceScore(text, pattern) {
   var loc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
   var distance = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1000;

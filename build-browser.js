@@ -13,7 +13,7 @@ rollup({
   ],
 }).then(bundle => (
   bundle.write({
-    dest: 'fuzzymatching.js',
+    dest: 'dist/fuzzymatching.js',
     format: 'umd',
     moduleName: pkg.name,
     banner: (

@@ -5,8 +5,8 @@
   "collectCoverageFrom": [
     "!src/index.js",
     "!src/lib/*.js",
-    "!*.min.js",
-    "!fuzzymatching.js",
+    "!dist/*.min.js",
+    "!dist/fuzzymatching.js",
     "lib/*.js"
   ]
 }

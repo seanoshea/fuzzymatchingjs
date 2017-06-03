@@ -1,5 +1,5 @@
 const fuzzyMatching = require('../index');
-const min = require('../fuzzymatching.min');
+const min = require('../dist/fuzzymatching.min');
 
 describe('Minified version', () => {
   test('should export the same functionality as the server-side version', () => {

@@ -49,7 +49,7 @@ describe('Fuzzy Matching Patterns', () => {
       expect(fuzzyMatching.fuzzyMatchPattern('', 'abcdef', 1)).toEqual(-1);
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'de', 3)).toEqual(3);
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'defy', 4)).toEqual(3);
-      expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'abcdefy')).toEqual(-1);
+      expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'abcdefy')).toEqual(0);
       expect(fuzzyMatching.fuzzyMatchPattern('🐶', '🐶')).toEqual(0);
     });
   });

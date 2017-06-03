@@ -18,7 +18,7 @@ function matchBitapScore(e, x, loc, pattern, matchDistance) {
   return accuracy + (proximity / matchDistance);
 }
 
-function matchBitapOfText(text, pattern, loc, options) {
+function matchBitapOfText(text, pattern, loc = 0, options) {
   const s = matchAlphabet(pattern);
   const matchDistance = (options && options.distance) || 1000;
   const matchThreshold = (options && options.threshold) || 0.5;
@@ -98,7 +98,7 @@ function matchBitapOfText(text, pattern, loc, options) {
  * @arg {String} [options.threshold] - Defines how strict you want to be when fuzzy matching. A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose understanding of whether a match has been found.
  * @return An Int indicating where the fuzzy matched pattern can be found in the text.
  */
-function fuzzyMatchPattern(text, pattern, loc, options) {
+function fuzzyMatchPattern(text, pattern, loc = 0, options) {
   if (text == null || pattern == null) {
     throw new Error('Null input. (fuzzyMatchPattern)');
   }
