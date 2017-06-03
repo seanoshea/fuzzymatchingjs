@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import * as FuzzyMatchingJS from 'fuzzymatchingjs';
+import { fuzzyMatching } from 'fuzzymatchingjs';
 
 class App extends Component {
 
@@ -15,7 +15,7 @@ class App extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({result: FuzzyMatchingJS.fuzzyMatchPattern(this.state.text, this.state.pattern, 0)});
+    this.setState({result: fuzzyMatching.fuzzyMatchPattern(this.state.text, this.state.pattern, 0)});
   }
 
   handleTextChange = (e) => {
