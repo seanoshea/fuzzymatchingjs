@@ -7,23 +7,39 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
-      pattern: "",
-      result: "",
+      fuzzyMatchingText: "",
+      fuzzyMatchingPattern: "",
+      fuzzyMatchingResult: "",
+      confidenceScoreText: "",
+      confidenceScorePattern: "",
+      confidenceScoreResult: "",
     };
   }
 
-  handleClick = (e) => {
+  handleFuzzyMatchingClick = (e) => {
     e.preventDefault();
-    this.setState({result: fuzzyMatching.fuzzyMatchPattern(this.state.text, this.state.pattern, 0)});
+    this.setState({fuzzyMatchingResult: fuzzyMatching.fuzzyMatchPattern(this.state.fuzzyMatchingText, this.state.fuzzyMatchingPattern, 0)});
   }
 
-  handleTextChange = (e) => {
-    this.setState({text: e.target.value});
+  handleConfidenceClick = (e) => {
+    e.preventDefault();
+    this.setState({confidenceScoreResult: fuzzyMatching.confidenceScore(this.state.confidenceScoreText, this.state.confidenceScorePattern, 0)});
   }
 
-  handlePatternChange = (e) => {
-    this.setState({pattern: e.target.value});
+  handleFuzzyMatchingTextChange = (e) => {
+    this.setState({fuzzyMatchingText: e.target.value});
+  }
+
+  handleFuzzyMatchingPatternChange = (e) => {
+    this.setState({fuzzyMatchingPattern: e.target.value});
+  }
+
+  handleFuzzyMatchingTextChange = (e) => {
+    this.setState({confidenceScoreText: e.target.value});
+  }
+
+  handleFuzzyMatchingPatternChange = (e) => {
+    this.setState({confidenceScorePattern: e.target.value});
   }
 
   render() {
@@ -33,13 +49,24 @@ class App extends Component {
         <form>
           <fieldset>
             <label htmlFor="text">Text</label>
-            <input type="text" name="text" id="text" value={this.state.text} onChange={this.handleTextChange} />
+            <input type="text" name="text" id="text" value={this.state.text} onChange={this.handleFuzzyMatchingTextChange} />
             <label htmlFor="text">Pattern</label>
-            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={this.handlePatternChange} />
-            <input type="submit" id="submit" onClick={this.handleClick} />
+            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={this.handleFuzzyMatchingPatternChange} />
+            <input type="submit" id="submit" onClick={this.handleFuzzyMatchingClick} />
           </fieldset>
         </form>
-        <div>{this.state.result}</div>
+        <div>{this.state.fuzzyMatchingResult}</div>
+        <p>Fuzzy Matching Confidence</p>
+        <form>
+          <fieldset>
+            <label htmlFor="text">Text</label>
+            <input type="text" name="text" id="text" value={this.state.text} onChange={this.handleFuzzyMatchingTextChange} />
+            <label htmlFor="text">Pattern</label>
+            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={this.handleFuzzyMatchingPatternChange} />
+            <input type="submit" id="submit" onClick={this.handleConfidenceClick} />
+          </fieldset>
+        </form>
+        <div>{this.state.confidenceScoreResult}</div>
       </div>
     );
   }
