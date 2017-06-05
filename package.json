@@ -9,7 +9,9 @@
     "README.md",
     "LICENCE",
     "dist/fuzzymatching.js",
-    "dist/fuzzymatching.min.js"
+    "dist/fuzzymatching.min.js",
+    "dist/fuzzymatching-prepacked.js",
+    "dist/fuzzymatching.min-prepacked.js"
   ],
   "scripts": {
     "lint": "eslint src/lib/*.js test",
@@ -20,9 +22,10 @@
     "build:browser": "babel-node build-browser && yarn minify",
     "build:node": "babel src -d . --presets es2015 --plugins add-module-exports",
     "build": "yarn build:browser && yarn build:node",
+    "prepack": "prepack dist/fuzzymatching.js --out dist/fuzzymatching-prepacked.js && prepack dist/fuzzymatching.min.js --out dist/fuzzymatching.min-prepacked.js",
     "compressed-size": "echo 'dist/fuzzymatching.min.js gzipped will weigh' $(cat dist/fuzzymatching.min.js | gzip -9 | wc -c | pretty-bytes)",
     "generate-docs": "jsdoc -c ./docs/conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src",
-    "pretest": "yarn lint && yarn build",
+    "pretest": "yarn lint && yarn build && yarn prepack",
     "test": "jest --coverage --coveragePathIgnorePatterns dist/*.min.js",
     "coveralls": "jest --config test/jest_coveralls.json --coverage",
     "start": "webpack-dev-server --progress --colors"

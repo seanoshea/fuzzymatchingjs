@@ -6,6 +6,8 @@ cache:
 language: node_js
 node_js:
   - stable
+before_script:
+  - yarn global add prepack
 after_script:
   - yarn coveralls
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
