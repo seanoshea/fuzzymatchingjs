@@ -1,10 +1,9 @@
 var React = require('react');
-var TestUtils = require('react/lib/ReactTestUtils');
-var MemberList = require('../App.js');
- 
-describe('App', () => {
-  it('renders', () => {
-    var element = TestUtils.renderIntoDocument(<App />);
-    expect(element).toBeTruthy();
+import { shallow, mount, render } from 'enzyme';
+import App from '../src/App';
+
+describe('App', function() {
+  it('renders', function() {
+    expect(shallow(<App />).contains(<div className="App" />)).toBe(true);
   });
 });

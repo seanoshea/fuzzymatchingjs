@@ -1,29 +1,60 @@
+var path = require('path');
+
 module.exports = function(config) {
   config.set({
-    browsers: ['Chrome'],
+    basePath: '',
     frameworks: ['jasmine'],
-    preprocessors: {
-      'tests.webpack.js': ['webpack'],
-    },
     files: [
-      { pattern: 'tests.webpack.js', watched: false },
+      'test/**/*.js'
     ],
-    reporters: ['progress'],
-    singleRun: true,
+    preprocessors: {
+      'src/**/*.js': ['webpack', 'sourcemap'],
+      'test/**/*.js': ['webpack', 'sourcemap']
+    },
     webpack: {
+      devtool: 'inline-source-map',
       module: {
         loaders: [
-          { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-        ],
+          {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: path.resolve(__dirname, 'node_modules'),
+            query: {
+              presets: ['react', 'airbnb']
+            }
+          },
+          {
+            test: /\.json$/,
+            loader: 'json-loader',
+          },
+        ]
       },
-      watch: true,
+      externals: {
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      }
     },
     webpackServer: {
-      noInfo: true,
+      noInfo: true
     },
+    plugins: [
+      'karma-webpack',
+      'karma-jasmine',
+      'karma-sourcemap-loader',
+      'karma-chrome-launcher',
+      'karma-phantomjs-launcher'
+    ],
+    babelPreprocessor: {
+      options: {
+        presets: ['airbnb']
+      }
+    },
+    reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    concurrency: Infinity
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false,
   })
-}
+};

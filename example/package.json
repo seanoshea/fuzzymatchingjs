@@ -5,15 +5,21 @@
   "dependencies": {
     "fuzzymatchingjs": "../",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "babel-preset-airbnb": "^2.2.3",
+    "enzyme": "^2.8.2",
     "jasmine-core": "^2.6.2",
     "karma": "^1.7.0",
     "karma-chrome-launcher": "^2.1.1",
     "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
+    "react-test-renderer": "^15.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
