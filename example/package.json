@@ -3,17 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fuzzymatchingjs": "../",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "fuzzymatchingjs": "../"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "jasmine-core": "^2.6.2",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-webpack": "^2.0.3",
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "karma": "karma start karma.conf.js",
     "eject": "react-scripts eject"
   }
 }
