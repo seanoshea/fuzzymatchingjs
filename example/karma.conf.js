@@ -5,6 +5,7 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
+      'src/**/*.js',
       'test/**/*.js'
     ],
     preprocessors: {
