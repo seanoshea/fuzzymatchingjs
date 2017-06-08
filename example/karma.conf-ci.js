@@ -31,8 +31,7 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'src/*.js',
-      'test/*.js'
+      'test/**/*.js'
     ],
     preprocessors: {
       'src/**/*.js': ['webpack', 'sourcemap'],
