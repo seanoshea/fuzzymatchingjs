@@ -54,7 +54,7 @@ The example app includes some tests which are run through a browser matrix on sa
 oshea.ie@gmail.com. See the Acknowledgements section for the original basis for this code.
 
 ## License
-FuzzyMatchingSwift is available under the Apache 2 license. See the LICENSE file for more info.
+FuzzyMatchingJS is available under the Apache 2 license. See the LICENSE file for more info.
 
 ## Contributing
 See the [Contributing Instructions](.github/CONTRIBUTING.MD) for details.
