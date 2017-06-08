@@ -5,12 +5,11 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'src/**/*.js',
       'test/**/*.js'
     ],
     preprocessors: {
-      'src/**/*.js': ['webpack'],
-      'test/**/*.js': ['webpack']
+      'src/**/*.js': ['webpack', 'sourcemap'],
+      'test/**/*.js': ['webpack', 'sourcemap']
     },
     webpack: {
       devtool: 'inline-source-map',
@@ -23,11 +22,13 @@ module.exports = function(config) {
           },
           {
             test: /\.css$/,
-            loader: 'css-loader'
+            loader: 'css-loader',
+            exclude: path.resolve(__dirname, 'node_modules')
           },
           {
             test: /\.json$/,
             loader: 'json-loader',
+            exclude: path.resolve(__dirname, 'node_modules')
           },
         ]
       },

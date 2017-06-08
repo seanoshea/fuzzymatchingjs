@@ -34,11 +34,11 @@ class App extends Component {
     this.setState({fuzzyMatchingPattern: e.target.value});
   }
 
-  handleFuzzyMatchingTextChange(e) {
+  handleFuzzyMatchingConfidenceTextChange(e) {
     this.setState({confidenceScoreText: e.target.value});
   }
 
-  handleFuzzyMatchingPatternChange(e) {
+  handleFuzzyMatchingConfidencePatternChange(e) {
     this.setState({confidenceScorePattern: e.target.value});
   }
 
@@ -49,10 +49,10 @@ class App extends Component {
         <form>
           <fieldset>
             <label htmlFor="text">Text</label>
-            <input type="text" name="text" id="text" value={this.state.text} onChange={this.handleFuzzyMatchingTextChange} />
+            <input type="text" name="text" id="text" value={this.state.text} onChange={(e) => this.handleFuzzyMatchingTextChange(e) } />
             <label htmlFor="text">Pattern</label>
-            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={this.handleFuzzyMatchingPatternChange} />
-            <input type="submit" id="submit" onClick={this.handleFuzzyMatchingClick} />
+            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={(e) => this.handleFuzzyMatchingPatternChange(e) } />
+            <input type="submit" id="submit" onClick={(e) => this.handleFuzzyMatchingClick(e) } />
           </fieldset>
         </form>
         <div>{this.state.fuzzyMatchingResult}</div>
@@ -60,10 +60,10 @@ class App extends Component {
         <form>
           <fieldset>
             <label htmlFor="text">Text</label>
-            <input type="text" name="text" id="text" value={this.state.text} onChange={this.handleFuzzyMatchingTextChange} />
+            <input type="text" name="text" id="text" value={this.state.text} onChange={(e) => this.handleFuzzyMatchingConfidenceTextChange(e) } />
             <label htmlFor="text">Pattern</label>
-            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={this.handleFuzzyMatchingPatternChange} />
-            <input type="submit" id="submit" onClick={this.handleConfidenceClick} />
+            <input type="text" name="pattern" id="pattern" value={this.state.pattern} onChange={(e) => this.handleFuzzyMatchingConfidencePatternChange(e) } />
+            <input type="submit" id="submit" onClick={(e) => this.handleConfidenceClick(e) } />
           </fieldset>
         </form>
         <div>{this.state.confidenceScoreResult}</div>
@@ -72,4 +72,6 @@ class App extends Component {
   }
 }
 
+App.propTypes = {};
+App.defaultProps = {};
 export default App;
