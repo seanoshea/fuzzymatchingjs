@@ -6,6 +6,13 @@ cache:
 language: node_js
 node_js:
   - stable
+addons:
+  sauce_connect:
+    username: "seanoshea"
+  jwt:
+    secure: "NuxFBbiOzyHC+W9IhVaDxyUf80ZZZVc6U617ZrjZDiSWMoEhitNsfEtd8uS2btqoBip7Tzk6qvpHLU4N8qhRUTZeTOf5bak9Da9/S8L3pJ+gyby+OPb44c+9WowuhdQVOeh8eSk5e+uSsD3zGYNAXMmxKCmdvsBQWTRQT9kX+YAoPo+clTQszwuXytTVn6hWUZYMKhm4lBjpTwbc4uDGISgfeIfVeSiY4oflsmID2CcMQ9iQ8kvCmfWplqM2tYLGx7i9wKCplKK9ys9D2JaXnznOhflvaHdj8gmwFXznA7dDdxrq67K9wIRSGxTEBVlTK6Lt9hmKDMSkoZbf0WDc+P31NvttWdc7NK6/eUnwv4/3eResNPoXcBh53p6tyftmna4mPFeRiv3mcdjxBkF2tgueTuIXppu61m77veUlV4YK/XACtlujoaEWGiuTI/NJEyz0ZOlz2yIpx2ytvewfsuxekH/ETqIRJTdiV7tG68T+FAjQzyelSdneidpiMwzw767GbBmNXLDCy7MOt+vFtwhxTjPEx48/e1PEoBFqxYDApHZ4LPi+hN/pAoLqv8TLsXXdzebVFhlgsCI5aWml5DmY26cwvcw5zYKCqLPRh45Dy7VtQEZBcRPFcq5S0aQRVl3K6LSYOP31tE9TI462SE0FF/YGroqEBrKcVaDOjLg="
 after_script:
+  - cd example && yarn karma-saucelabs
+  - cd ../
   - yarn coveralls
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
