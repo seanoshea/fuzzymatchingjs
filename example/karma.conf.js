@@ -9,8 +9,8 @@ module.exports = function(config) {
       'test/**/*.js'
     ],
     preprocessors: {
-      'src/**/*.js': ['webpack', 'sourcemap'],
-      'test/**/*.js': ['webpack', 'sourcemap']
+      'src/**/*.js': ['babel'],
+      'test/**/*.js': ['babel']
     },
     webpack: {
       devtool: 'inline-source-map',
@@ -19,10 +19,7 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             loader: 'babel-loader',
-            exclude: path.resolve(__dirname, 'node_modules'),
-            query: {
-              presets: ['react', 'airbnb']
-            }
+            exclude: path.resolve(__dirname, 'node_modules')
           },
           {
             test: /\.css$/,
