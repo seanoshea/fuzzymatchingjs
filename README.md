@@ -1,7 +1,6 @@
 # FuzzyMatchingJS
-String Fuzzy Matching
-
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Downloads][downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Downloads][downloads-image]][npm-url] [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 [downloads-image]: http://img.shields.io/npm/dm/fuzzymatchingjs.svg
 
@@ -13,9 +12,6 @@ String Fuzzy Matching
 
 [coveralls-url]: https://coveralls.io/r/seanoshea/fuzzymatchingjs
 [coveralls-image]: http://img.shields.io/coveralls/seanoshea/fuzzymatchingjs/develop.svg
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Acknowledgements
 
