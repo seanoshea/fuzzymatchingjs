@@ -85,7 +85,13 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     sauceLabs: {
-      testName: 'Fuzzy Matching JS Sauce Labs Browser Testing'
+      testName: 'Fuzzy Matching JS Sauce Labs Browser Testing',
+      recordScreenshots: false,
+      connectOptions: {
+        port: 5757,
+        logfile: 'sauce_connect.log'
+      },
+      public: 'public'
     },
     captureTimeout: 120000,
     customLaunchers: customLaunchers,
