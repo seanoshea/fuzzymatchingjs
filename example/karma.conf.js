@@ -9,8 +9,8 @@ module.exports = function(config) {
       'test/**/*.js'
     ],
     preprocessors: {
-      'src/**/*.js': ['babel'],
-      'test/**/*.js': ['babel']
+      'src/**/*.js': ['webpack'],
+      'test/**/*.js': ['webpack']
     },
     webpack: {
       devtool: 'inline-source-map',

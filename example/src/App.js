@@ -16,29 +16,29 @@ class App extends Component {
     };
   }
 
-  handleFuzzyMatchingClick = (e) => {
+  handleFuzzyMatchingClick(e) {
     e.preventDefault();
     this.setState({fuzzyMatchingResult: fuzzyMatching.fuzzyMatchPattern(this.state.fuzzyMatchingText, this.state.fuzzyMatchingPattern, 0)});
   }
 
-  handleConfidenceClick = (e) => {
+  handleConfidenceClick(e) {
     e.preventDefault();
     this.setState({confidenceScoreResult: fuzzyMatching.confidenceScore(this.state.confidenceScoreText, this.state.confidenceScorePattern, 0)});
   }
 
-  handleFuzzyMatchingTextChange = (e) => {
+  handleFuzzyMatchingTextChange(e) {
     this.setState({fuzzyMatchingText: e.target.value});
   }
 
-  handleFuzzyMatchingPatternChange = (e) => {
+  handleFuzzyMatchingPatternChange(e) {
     this.setState({fuzzyMatchingPattern: e.target.value});
   }
 
-  handleFuzzyMatchingTextChange = (e) => {
+  handleFuzzyMatchingTextChange(e) {
     this.setState({confidenceScoreText: e.target.value});
   }
 
-  handleFuzzyMatchingPatternChange = (e) => {
+  handleFuzzyMatchingPatternChange(e) {
     this.setState({confidenceScorePattern: e.target.value});
   }
 
