@@ -1,6 +1,7 @@
 # FuzzyMatchingJS
 [![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea) [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Downloads][downloads-image]][npm-url] [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 ![Sauce Test Status](https://saucelabs.com/browser-matrix/seanoshea.svg)
 
 [downloads-image]: http://img.shields.io/npm/dm/fuzzymatchingjs.svg

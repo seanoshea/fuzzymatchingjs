@@ -14,7 +14,6 @@ script:
   - npm run test
   - cd example
   - npm install
-  - npm run karma-saucelabs
 after_script:
   - cd ../
   - npm run coveralls
