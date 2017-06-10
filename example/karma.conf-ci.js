@@ -58,15 +58,17 @@ module.exports = function(config) {
     },
     'SL_iOS_Latest': {
       base: 'SauceLabs',
+      deviceName: 'iPhone Simulator',
       browserName: 'safari',
-      version: '10.2',
-      platform: 'iOS'
+      platformVersion: '10.2',
+      platformName: 'iOS'
     },
     'SL_iOS_Latest_Minus_One': {
       base: 'SauceLabs',
+      deviceName: 'iPhone Simulator',
       browserName: 'safari',
-      version: '9.3',
-      platform: 'iOS'
+      platformVersion: '9.3',
+      platformName: 'iOS'
     },
   };
   config.set({
