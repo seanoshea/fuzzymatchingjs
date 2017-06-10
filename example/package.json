@@ -34,13 +34,11 @@
     "phantomjs-prebuilt": "^2.1.14",
     "react-scripts": "1.0.7",
     "react-test-renderer": "^15.5.4",
-    "watchify": "^3.9.0",
     "webpack": "^3.0.0-rc.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "karma": "karma start karma.conf.js",
     "karma-saucelabs": "karma start karma.conf-ci.js"

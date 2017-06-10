@@ -20,7 +20,7 @@
     "build:browser": "babel-node build-browser && npm run minify",
     "build:node": "babel src -d . --presets es2015 --plugins add-module-exports",
     "build": "npm run build:browser && npm run build:node",
-    "compressed-size": "echo 'dist/fuzzymatching.min.js gzipped will weigh' $(cat dist/fuzzymatching.min.js | gzip -9 | wc -c | pretty-bytes)",
+    "compressed-size": "echo 'dist/fuzzymatching.min.js gzipped will weigh' $(cat dist/fuzzymatching.min.js | gzip -9 | wc -c) bytes",
     "generate-docs": "jsdoc -c ./docs/conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src",
     "pretest": "npm run lint && npm run build",
     "test": "jest --coverage --coveragePathIgnorePatterns dist/*.min.js",
