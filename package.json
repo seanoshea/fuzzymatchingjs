@@ -23,8 +23,8 @@
     "compressed-size": "echo 'dist/fuzzymatching.min.js gzipped will weigh' $(cat dist/fuzzymatching.min.js | gzip -9 | wc -c) bytes",
     "generate-docs": "jsdoc -c ./docs/conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src",
     "pretest": "npm run lint && npm run build",
-    "test": "npm run jest --coverage --coveragePathIgnorePatterns dist/*.min.js",
-    "coveralls": "npm run jest --config test/jest_coveralls.json --coverage",
+    "test": "jest --coverage --coveragePathIgnorePatterns dist/*.min.js",
+    "coveralls": "jest --config test/jest_coveralls.json --coverage",
     "start": "webpack-dev-server --progress --colors"
   },
   "bugs": {
