@@ -34,7 +34,7 @@
     "phantomjs-prebuilt": "^2.1.14",
     "react-scripts": "1.0.7",
     "react-test-renderer": "^15.5.4",
-    "webpack": "^3.0.0-rc.1"
+    "webpack": "^2.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
