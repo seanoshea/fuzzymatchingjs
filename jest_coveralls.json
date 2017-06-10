@@ -1,6 +1,5 @@
 {
   "testMatch": ["<rootDir>/test/*.js"],
-  "transform": {},
   "moduleFileExtensions": ["js"],
   "collectCoverageFrom": [
     "!src/index.js",
