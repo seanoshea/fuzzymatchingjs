@@ -17,11 +17,13 @@ The majority of the fuzzy matching logic included in this project is taken from 
 ## Development Setup
 1. Install the 7.x version of node using https://github.com/creationix/nvm.
 2. Run `npm install`.
-4. Run `npm run test` to run the unit tests for the library. Ensure that they pass before proceeding with any other steps.
-5. Run `npm run start` to run the dev server for the library.
+3. Run `npm run test` to run the unit tests for the library. Ensure that they pass before proceeding with any other steps.
+4. Run `npm run start` to run the dev server for the library.
+5. Navigate to http://localhost:8080 and open the console. 
 
 ## Repository Structure
 There's a lot of configuration files and .js files associated with this project. Below is an attempt to explain what each of them are for:
+- `.browserslistrc` - lists the browsers which this library supports.
 - `.eslintignore` - similar to a `.gitignore` file. Has a list of files and directories which should be ignore as part of any linting process.
 - `.eslintrc.json` - `eslint` config file.
 - `.nvmrc` - similar to a `.ruby-version` or `.rvmrc` file. Specifies the version of node used to run this project.

@@ -39,7 +39,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
     "karma": "karma start karma.conf.js",
     "karma-saucelabs": "karma start karma.conf-ci.js"
   }

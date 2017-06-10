@@ -2,22 +2,58 @@ var path = require('path');
 
 module.exports = function(config) {
   var customLaunchers = {
-    'SL_Chrome': {
+    'SL_Chrome_Latest': {
       base: 'SauceLabs',
       browserName: 'chrome',
-      version: '48.0',
-      platform: 'Linux'
+      version: '58.0',
+      platform: 'Windows 10'
     },
-    'SL_Firefox': {
+    'SL_Chrome_Latest_Minus_One': {
+      base: 'SauceLabs',
+      browserName: 'chrome',
+      version: '57.0',
+      platform: 'Windows 10'
+    },
+    'SL_Chrome_Latest_Mac': {
+      base: 'SauceLabs',
+      browserName: 'chrome',
+      version: '58.0',
+      platform: 'OS X 10.12'
+    },
+    'SL_Chrome_Latest_Minus_One_Mac': {
+      base: 'SauceLabs',
+      browserName: 'chrome',
+      version: '57.0',
+      platform: 'OS X 10.12'
+    },
+    'SL_Firefox_Latest': {
       base: 'SauceLabs',
       browserName: 'firefox',
-      version: '50.0',
+      version: '53.0',
       platform: 'Windows 10'
+    },
+    'SL_Firefox_Latest_Minus_One': {
+      base: 'SauceLabs',
+      browserName: 'firefox',
+      version: '52.0',
+      platform: 'Windows 10'
+    },
+    'SL_Firefox_Latest_Mac': {
+      base: 'SauceLabs',
+      browserName: 'firefox',
+      version: '53.0',
+      platform: 'OS X 10.12'
+    },
+    'SL_Firefox_Latest_Minus_One_Mac': {
+      base: 'SauceLabs',
+      browserName: 'firefox',
+      version: '52.0',
+      platform: 'OS X 10.12'
     },
     'SL_Safari': {
       base: 'SauceLabs',
       browserName: 'safari',
-      platform: 'OS X 10.11',
+      platform: 'OS X 10.12',
       version: '10.0'
     }
   };
