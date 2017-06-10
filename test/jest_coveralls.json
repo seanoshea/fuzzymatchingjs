@@ -1,6 +1,6 @@
 {
   "testMatch": ["<rootDir>/test/*.js"],
-  "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+  "transform": {},
   "moduleFileExtensions": ["js"],
   "collectCoverageFrom": [
     "!src/index.js",
