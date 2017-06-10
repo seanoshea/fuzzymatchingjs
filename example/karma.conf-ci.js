@@ -55,7 +55,19 @@ module.exports = function(config) {
       browserName: 'safari',
       platform: 'OS X 10.12',
       version: '10.0'
-    }
+    },
+    'SL_iOS_Latest': {
+      base: 'SauceLabs',
+      browserName: 'safari',
+      version: '10.2',
+      platform: 'iOS'
+    },
+    'SL_iOS_Latest_Minus_One': {
+      base: 'SauceLabs',
+      browserName: 'safari',
+      version: '9.3',
+      platform: 'iOS'
+    },
   };
   config.set({
     basePath: '',
