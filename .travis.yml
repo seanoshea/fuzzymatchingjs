@@ -15,7 +15,6 @@ before_script:
   - cd example
   - npm install
 script:
-  - cd example
   - npm run karma-saucelabs
   - cd ../
   - npm run test
