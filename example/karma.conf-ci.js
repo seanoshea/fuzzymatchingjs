@@ -63,12 +63,12 @@ module.exports = function(config) {
       platformVersion: '10.2',
       platformName: 'iOS'
     },
-    'SL_iOS_Latest_Minus_One': {
+    'SL_Android_Latest': {
       base: 'SauceLabs',
-      deviceName: 'iPhone Simulator',
-      browserName: 'safari',
-      platformVersion: '9.3',
-      platformName: 'iOS'
+      deviceName: 'Android Emulator',
+      browserName: 'Chrome',
+      platformVersion: '6.0',
+      platformName: 'Android'
     },
   };
   config.set({
