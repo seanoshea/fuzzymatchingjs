@@ -1,6 +1,6 @@
 {
   "name": "fuzzymatchingjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "String Fuzzy Matching",
   "main": "index.js",
   "files": [
