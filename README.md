@@ -5,8 +5,8 @@
 ![Sauce Test Status](https://saucelabs.com/browser-matrix/seanoshea.svg)
 
 [downloads-image]: http://img.shields.io/npm/dm/fuzzymatchingjs.svg
-[npm-url]: https://npmjs.org/package/fuzzymatching
-[npm-image]: http://img.shields.io/npm/v/fuzzymatching.svg
+[npm-url]: https://npmjs.org/package/fuzzymatchingjs
+[npm-image]: http://img.shields.io/npm/v/fuzzymatchingjs.svg
 [travis-url]: https://travis-ci.org/seanoshea/fuzzymatchingjs
 [travis-image]: http://img.shields.io/travis/seanoshea/fuzzymatchingjs.svg
 [coveralls-url]: https://coveralls.io/r/seanoshea/fuzzymatchingjs
@@ -14,6 +14,9 @@
 
 ## Acknowledgements
 The majority of the fuzzy matching logic included in this project is taken from [Neil Fraser's](https://neil.fraser.name/) [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
+
+## Usage
+See the [README](docs/README.md) file in the docs directory.
 
 ## Development Setup
 1. Install the 7.x version of node using https://github.com/creationix/nvm.

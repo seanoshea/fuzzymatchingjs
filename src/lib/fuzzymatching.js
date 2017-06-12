@@ -90,12 +90,13 @@ function matchBitapOfText(text, pattern, loc = 0, options) {
 
 /**
  * Executes a fuzzy match on the `text` parameter using the `pattern` parameter.
- * @arg {String} text - the text to search through for the pattern.
- * @arg {String} pattern - the pattern within the text to search for.
- * @arg {String} loc - defines the approximate position in the text where the pattern is expected to be found.
- * @arg {Object} options
- * @arg {String} [options.distance] - Defines where in the text to look for the pattern.
- * @arg {String} [options.threshold] - Defines how strict you want to be when fuzzy matching. A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose understanding of whether a match has been found.
+ * @param {String} text - the text to search through for the pattern.
+ * @param {String} pattern - the pattern within the text to search for.
+ * @param {String} loc - defines the approximate position in the text where the pattern is expected to be found.
+ * @param {Object} options
+ * @param {String} [options.distance] - Defines where in the text to look for the pattern.
+ * @param {String} [options.threshold] - Defines how strict you want to be when fuzzy matching. A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose understanding of whether a match has been found.
+ * @since 0.1.0
  * @return An Int indicating where the fuzzy matched pattern can be found in the text.
  */
 function fuzzyMatchPattern(text, pattern, loc = 0, options) {
@@ -115,10 +116,11 @@ function fuzzyMatchPattern(text, pattern, loc = 0, options) {
 
 /**
  * Provides a confidence score relating to how likely the `pattern` parameter is to be found in the `text` parameter.
- * @arg {String} text - the text to search through for the pattern.
- * @arg {String} pattern - the pattern to search for.
- * @arg {Int} loc - the index in the element from which to search.
- * @arg {Int} distance - determines how close the match must be to the fuzzy location. See `loc` parameter.
+ * @param {String} text - the text to search through for the pattern.
+ * @param {String} pattern - the pattern to search for.
+ * @param {Int} loc - the index in the element from which to search.
+ * @param {Int} distance - determines how close the match must be to the fuzzy location. See `loc` parameter.
+ * @since 0.1.0
  * @return A number which indicates how confident we are that the pattern can be found in the host string. A low value (0.001) indicates that the pattern is likely to be found. A high value (0.999) indicates that the pattern is not likely to be found.
  */
 function confidenceScore(text, pattern, loc = 0, distance = 1000) {
@@ -132,4 +134,40 @@ function confidenceScore(text, pattern, loc = 0, distance = 1000) {
   return -1;
 }
 
-export default { confidenceScore, fuzzyMatchPattern };
+/**
+ * Iterates over all elements in the array and executes a fuzzy match using the `pattern` parameter.
+ * @param {Array} array - the array of Strings to sort.
+ * @param {String} pattern - the pattern to search for.
+ * @param {Int} loc - the index in the element from which to search.
+ * @param {Int} distance - determines how close the match must be to the fuzzy location. See `loc` parameter.
+ * @since 0.2.0
+ * @return The `array` parameter sorted according to how close each element is fuzzy matched to the `pattern` parameter.
+ */
+function sortArrayByFuzzyMatchPattern(array, pattern, loc = 0, distance = 1000) {
+  const indexesAdded = [];
+  const sortedArray = [];
+  for (let i = 1, l = 10; i <= l; i += 1) {
+    if (sortedArray.length === array.length) {
+      break;
+    }
+    const options = { threshold: i / 10, distance };
+    for (let index = 0, length = array.length; index < length; index += 1) {
+      if (!indexesAdded.includes(index)) {
+        const value = array[index];
+        const result = fuzzyMatchPattern(value, pattern, loc, options);
+        if (result !== -1) {
+          sortedArray.push(value);
+          indexesAdded.push(index);
+        }
+      }
+    }
+  }
+  for (let index = 0, length = array.length; index < length; index += 1) {
+    if (!indexesAdded.includes(index)) {
+      sortedArray.push(array[index]);
+    }
+  }
+  return sortedArray;
+}
+
+export default { confidenceScore, fuzzyMatchPattern, sortArrayByFuzzyMatchPattern };
