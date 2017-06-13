@@ -11,5 +11,5 @@ var _fuzzymatching2 = _interopRequireDefault(_fuzzymatching);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_fuzzymatching2.default.version = '0.2.0';
+_fuzzymatching2.default.version = '0.2.1';
 exports.fuzzyMatching = _fuzzymatching2.default;
