@@ -29,7 +29,7 @@ rollup({
 }).then(bundle => (
   bundle.write({
     dest: 'dist/fuzzymatching.js',
-    format: 'iife',
+    format: 'umd',
     moduleName: pkg.name,
     banner: (
       '/*!\n' +
