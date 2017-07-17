@@ -13,8 +13,11 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-(function (exports) {
-'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.fuzzymatchingjs = global.fuzzymatchingjs || {})));
+}(this, (function (exports) { 'use strict';
 
 function commonjsRequire () {
 	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
@@ -7579,6 +7582,10 @@ module.exports = request;
 });
 
 function matchAlphabet(pattern) {
+  // just trying to use rp
+  if (rp) {
+    console.log(rp);
+  }
   var s = {};
   for (var i = 0, l = pattern.length; i < l; i += 1) {
     s[pattern.charAt(i)] = 0;
@@ -7766,4 +7773,6 @@ fuzzyMatching.version = '0.2.1';
 
 exports.fuzzyMatching = fuzzyMatching;
 
-}((this.fuzzymatchingjs = this.fuzzymatchingjs || {})));
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
