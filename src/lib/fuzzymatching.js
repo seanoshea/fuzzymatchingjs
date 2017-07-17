@@ -1,3 +1,5 @@
+import rp from 'request-promise';
+
 function matchAlphabet(pattern) {
   const s = {};
   for (let i = 0, l = pattern.length; i < l; i += 1) {
