@@ -1,4 +1,10 @@
+import rp from 'request-promise';
+
 function matchAlphabet(pattern) {
+  // just trying to use rp
+  if (rp && 1 === 0) {
+    console.log('');
+  }
   const s = {};
   for (let i = 0, l = pattern.length; i < l; i += 1) {
     s[pattern.charAt(i)] = 0;

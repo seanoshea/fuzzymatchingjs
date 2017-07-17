@@ -68,11 +68,18 @@
     "regenerator-runtime": "^0.10.5",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.5.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "uglify-js": "^3.0.11",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
   },
   "author": "Sean O'Shea <oshea.ie@gmail.com>",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/seanoshea/fuzzymatchingjs#readme"
+  "homepage": "https://github.com/seanoshea/fuzzymatchingjs#readme",
+  "dependencies": {
+    "request-promise": "^4.2.1"
+  }
 }
