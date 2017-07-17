@@ -7583,8 +7583,8 @@ module.exports = request;
 
 function matchAlphabet(pattern) {
   // just trying to use rp
-  if (rp) {
-    console.log(rp);
+  if (rp && 1 === 0) {
+    console.log('');
   }
   var s = {};
   for (var i = 0, l = pattern.length; i < l; i += 1) {
