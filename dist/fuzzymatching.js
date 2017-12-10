@@ -1,5 +1,5 @@
 /*!
- * Copyright 2017 Sean O'Shea
+ * Copyright 2017 - present Sean O'Shea
  * 
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.fuzzymatchingjs = global.fuzzymatchingjs || {})));
+	(factory((global.fuzzymatchingjs = {})));
 }(this, (function (exports) { 'use strict';
 
 function matchAlphabet(pattern) {
@@ -203,7 +203,7 @@ function sortArrayByFuzzyMatchPattern(array, pattern) {
 
 var fuzzyMatching = { confidenceScore: confidenceScore, fuzzyMatchPattern: fuzzyMatchPattern, sortArrayByFuzzyMatchPattern: sortArrayByFuzzyMatchPattern };
 
-fuzzyMatching.version = '0.1.0';
+fuzzyMatching.version = '0.2.1';
 
 exports.fuzzyMatching = fuzzyMatching;
 
