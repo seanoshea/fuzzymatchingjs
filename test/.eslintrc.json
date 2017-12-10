@@ -8,6 +8,7 @@
     "jest": true
   },
   "rules": {
-    "max-len": "off"
+    "max-len": "off",
+    "prefer-destructuring": "off"
   }
 }

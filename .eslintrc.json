@@ -11,6 +11,7 @@
   },
   "rules": {
     "max-len": "off",
-    "no-bitwise": "off"
+    "no-bitwise": "off",
+    "prefer-destructuring": "off"
   }
 }
