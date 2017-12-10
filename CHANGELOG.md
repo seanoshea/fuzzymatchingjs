@@ -1,3 +1,7 @@
+# Version 0.3.0
+
+- Updating software dependency versions.
+
 # Version 0.2.1
 
 - Correcting unit tests and updating documentation.
