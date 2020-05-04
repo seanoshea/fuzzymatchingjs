@@ -1,3 +1,11 @@
+# Version 0.3.0
+
+- Dusting off the project after a long hiatus. Upgrades to development libraries.
+- Moving away from webpack and towards rollup.
+- Moving away from travisci and towards circleci.
+- Moving away from coveralls and towards codecov.
+- Removing the example app and relying on documentation instead.
+
 # Version 0.2.1
 
 - Correcting unit tests and updating documentation.
