@@ -6,11 +6,12 @@
   "module": "dist/fuzzymatchingjs.esm.js",
   "browser": "dist/fuzzymatchingjs.umd.js",
   "scripts": {
-    "lint": "eslint src/lib/*.js test",
+    "lint": "eslint src/lib/*.js",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
-    "pretest": "npm run lint && npm run build",
+    "prebuild": "npm run lint",
+    "pretest": "npm run build",
     "compressed-size": "echo 'dist/fuzzymatching.min.js gzipped will weigh' $(cat dist/fuzzymatching.min.js | gzip -9 | wc -c) bytes",
     "generate-docs": "jsdoc -c ./docs/conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src"
   },
