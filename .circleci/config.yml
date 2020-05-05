@@ -11,7 +11,7 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
-      - run: curl -s https://codecov.io/bash
+            - run: curl -s https://codecov.io/bash
 workflows:
     build-and-test:
       jobs:
