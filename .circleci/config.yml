@@ -11,7 +11,7 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
-            - run: curl -s https://codecov.io/bash
+            - run: ./bin/codecov -f coverage/*.json
 workflows:
     build-and-test:
       jobs:
