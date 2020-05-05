@@ -12,6 +12,8 @@
     "test": "jest",
     "prebuild": "npm run lint",
     "pretest": "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
     "compressed-size": "echo 'dist/fuzzymatching.min.js gzipped will weigh' $(cat dist/fuzzymatching.min.js | gzip -9 | wc -c) bytes",
     "generate-docs": "jsdoc -c ./docs/conf.json -d generated-docs -t ./node_modules/ink-docstrap/template -R docs/README.md -r ./src"
   },

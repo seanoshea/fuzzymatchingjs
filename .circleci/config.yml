@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  codecov: codecov/codecov@1.0.2
 jobs:
   build-and-test:
     executor:
@@ -10,11 +11,8 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm test && ./node_modules/codecov/bin/codecov -f coverage/info.lcov
-      - store_test_results:
-          path: coverage
-      - store_artifacts:
-          path: coverage
+            - run: npm test
+            - run: curl -s https://codecov.io/bash
 workflows:
     build-and-test:
       jobs:
