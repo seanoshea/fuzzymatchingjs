@@ -1,14 +1,9 @@
 # FuzzyMatchingJS
-[![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea) [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Downloads][downloads-image]][npm-url] [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
-![Sauce Test Status](https://saucelabs.com/browser-matrix/seanoshea.svg)
+[![CI Status](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop.svg?style=svg)](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop) [![Code Coverage](http://codecov.io/github/seanoshea/fuzzymatchingjs/coverage.svg?branch=develop)](http://codecov.io/github/seanoshea/fuzzymatchingjs?branch=develop) [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)[![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea)[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 [downloads-image]: http://img.shields.io/npm/dm/fuzzymatchingjs.svg
 [npm-url]: https://npmjs.org/package/fuzzymatchingjs
 [npm-image]: http://img.shields.io/npm/v/fuzzymatchingjs.svg
-[travis-url]: https://travis-ci.org/seanoshea/fuzzymatchingjs
-[travis-image]: http://img.shields.io/travis/seanoshea/fuzzymatchingjs.svg
 
 ## Acknowledgements
 The majority of the fuzzy matching logic included in this project is taken from [Neil Fraser's](https://neil.fraser.name/) [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
