@@ -36,7 +36,7 @@
     "coverageDirectory": "coverage",
     "collectCoverage": true,
     "coverageReporters": [
-      "json",
+      "lcov",
       "text"
     ],
     "coveragePathIgnorePatterns": [
