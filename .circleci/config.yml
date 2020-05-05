@@ -10,8 +10,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm test
-            - run: ./node_modules/codecov/bin/codecov
+            - run: npm test && ./node_modules/codecov/bin/codecov -f coverage/info.lcov
       - store_test_results:
           path: coverage
       - store_artifacts:
