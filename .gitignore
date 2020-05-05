@@ -37,4 +37,5 @@ jspm_packages
 .node_repl_history
 
 generated-docs/
-dist/*prepacked.js
+dist/*.js
+coverage

@@ -14,7 +14,7 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../index').fuzzyMatching;
+const fuzzyMatching = require('../dist/fuzzymatchingjs.cjs');
 
 describe('Fuzzy Matching Patterns', () => {
   describe('Error Handling', () => {
@@ -86,4 +86,3 @@ describe('Fuzzy Matching Patterns', () => {
     });
   });
 });
-

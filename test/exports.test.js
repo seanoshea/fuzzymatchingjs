@@ -14,7 +14,7 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../index').fuzzyMatching;
+const fuzzyMatching = require('../dist/fuzzymatchingjs.cjs');
 
 describe('Exports', () => {
   test('should export fuzzymatching functions', () => {
