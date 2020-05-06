@@ -14,7 +14,7 @@ jobs:
             - run: npm test
             - codecov/upload:
                 conf: codecov.yml
-                file: coverage/lcov.info
+                file: lcov.info
 workflows:
     build-and-test:
       jobs:
