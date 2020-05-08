@@ -35,7 +35,7 @@
   ],
   "jest": {
     "verbose": true,
-    "coverageDirectory": "coverage",
+    "coverageDirectory": "dist",
     "collectCoverage": true,
     "coverageReporters": [
       "json",

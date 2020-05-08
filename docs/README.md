@@ -11,7 +11,7 @@ It's just one simple script tag to get all the functionality:
 ### Import as a module
 Easily done using an [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import):
 ```javascript
-import { fuzzyMatching } from 'fuzzymatchingjs';
+import fuzzyMatching from 'fuzzymatchingjs';
 ```
 
 ### Matching on Strings
