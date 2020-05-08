@@ -1,4 +1,4 @@
-# FuzzyMatchingJS
+# fuzzymatchingjs
 
 [![CI Status](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop.svg?style=svg)](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop)
 [![Code Coverage](http://codecov.io/github/seanoshea/fuzzymatchingjs/coverage.svg?branch=develop)](http://codecov.io/github/seanoshea/fuzzymatchingjs?branch=develop)
