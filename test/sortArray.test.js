@@ -14,7 +14,7 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../dist/fuzzymatchingjs.cjs');
+import fuzzyMatching from '../src/index';
 
 describe('Fuzzy Sorting An Array if Strings', () => {
   describe('Sorting an array of strings based on how close they are to a pattern', () => {
