@@ -1,16 +1,15 @@
-# FuzzyMatchingJS
-[![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea) [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Downloads][downloads-image]][npm-url] [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+# fuzzymatchingjs
 
-![Sauce Test Status](https://saucelabs.com/browser-matrix/seanoshea.svg)
-
-[downloads-image]: http://img.shields.io/npm/dm/fuzzymatchingjs.svg
-[npm-url]: https://npmjs.org/package/fuzzymatchingjs
-[npm-image]: http://img.shields.io/npm/v/fuzzymatchingjs.svg
-[travis-url]: https://travis-ci.org/seanoshea/fuzzymatchingjs
-[travis-image]: http://img.shields.io/travis/seanoshea/fuzzymatchingjs.svg
-[coveralls-url]: https://coveralls.io/r/seanoshea/fuzzymatchingjs
-[coveralls-image]: http://img.shields.io/coveralls/seanoshea/fuzzymatchingjs/develop.svg
+[![CI Status](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop.svg?style=svg)](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop)
+[![Code Coverage](http://codecov.io/github/seanoshea/fuzzymatchingjs/coverage.svg?branch=develop)](http://codecov.io/github/seanoshea/fuzzymatchingjs?branch=develop)
+[![NPM version](https://img.shields.io/npm/v/fuzzymatchingjs)](https://img.shields.io/npm/v/fuzzymatchingjs)
+[![NPM version](https://img.shields.io/npm/dt/fuzzymatchingjs)](https://img.shields.io/npm/dt/fuzzymatchingjs)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Languages](https://img.shields.io/github/languages/count/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/languages/count/seanoshea/fuzzymatchingjs)
+[![Top Language](https://img.shields.io/github/languages/top/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/languages/top/seanoshea/fuzzymatchingjs)
+[![Open Issues](https://img.shields.io/github/issues/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/issues/seanoshea/fuzzymatchingjs)
+[![Closed Issues](https://img.shields.io/github/issues-closed/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/issues-closed/seanoshea/fuzzymatchingjs)
+[![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea)
 
 ## Acknowledgements
 The majority of the fuzzy matching logic included in this project is taken from [Neil Fraser's](https://neil.fraser.name/) [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
@@ -19,7 +18,7 @@ The majority of the fuzzy matching logic included in this project is taken from 
 See the [README](docs/README.md) file in the docs directory.
 
 ## Development Setup
-1. Install the 7.x version of node using https://github.com/creationix/nvm.
+1. Install the latest stable version of node using https://github.com/creationix/nvm.
 2. Run `npm install`.
 3. Run `npm run test` to run the unit tests for the library. Ensure that they pass before proceeding with any other steps.
 4. Run `npm run start` to run the dev server for the library.
@@ -27,20 +26,15 @@ See the [README](docs/README.md) file in the docs directory.
 
 ## Repository Structure
 There's a lot of configuration files and .js files associated with this project. Below is an attempt to explain what each of them are for:
-- `.browserslistrc` - lists the browsers which this library supports.
+- `.circleci` - config files for circle-ci integration.
 - `.eslintignore` - similar to a `.gitignore` file. Has a list of files and directories which should be ignore as part of any linting process.
 - `.eslintrc.json` - `eslint` config file.
 - `.nvmrc` - similar to a `.ruby-version` or `.rvmrc` file. Specifies the version of node used to run this project.
-- `.travis.yml` - travis-ci configuration file.
-- `build-browser.js` - `babel` config file for building a browser consumable version of this library.
 - `index.js` - main entry point for the library as specified in the `package.json` file. Basically just exports the main functionality of the library.
 - `package.json` - descriptor file for npm. Includes a lot of the build script configurations.
-- `webpack.config.js` - `webpack` configuration file.
 - `.github` - files which are specific to making development easy via github are housed here.
 - `dist` - generated .js files are housed here. The build scripts defined in `package.json` output to this directory.
 - `docs` - documentation configuration files are housed here. See the `generate-docs` script in `package.json` for details.
-- `example` - a sample `react` application is housed here.
-- `lib` - the files in this directory are automatically generated. The `fuzzymatching.js` file here should not be edited.
 - `src` - the source code for the library is housed here.
 - `test` - `jest` unit tests are housed here.
 
@@ -50,18 +44,14 @@ There's a lot of configuration files and .js files associated with this project.
 ## Documentation
 Run `npm run generate-docs` to generate the `jsdoc` documentation for the library.
 
-## Example App
-The `example` directory contains a sample react application which takes advantage of some of `fuzzymatchingjs`
-The example app includes some tests which are run through a browser matrix on saucelabs.
-
 ## Author
 oshea.ie@gmail.com. See the Acknowledgements section for the original basis for this code.
 
 ## License
-FuzzyMatchingJS is available under the Apache 2 license. See the LICENSE file for more info.
+fuzzymatchingjs is available under the Apache 2 license. See the LICENSE file for more info.
 
 ## Contributing
 See the [Contributing Instructions](.github/CONTRIBUTING.MD) for details.
 
 ## Swift Version
-https://github.com/seanoshea/FuzzyMatchingSwift is a Swift version of this library.
+https://github.com/seanoshea/fuzzymatchingjs is a Swift version of this library.
