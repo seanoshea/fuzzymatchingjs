@@ -14,8 +14,8 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../index');
-const min = require('../dist/fuzzymatching.min');
+const fuzzyMatching = require('../dist/fuzzymatchingjs.cjs');
+const min = require('../dist/fuzzymatchingjs.umd.js');
 
 describe('Minified version', () => {
   test('should export the same functionality as the server-side version', () => {

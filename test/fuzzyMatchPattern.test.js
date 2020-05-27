@@ -14,7 +14,7 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../index').fuzzyMatching;
+import fuzzyMatching from '../src/index';
 
 describe('Fuzzy Matching Patterns', () => {
   describe('Error Handling', () => {
@@ -86,4 +86,3 @@ describe('Fuzzy Matching Patterns', () => {
     });
   });
 });
-

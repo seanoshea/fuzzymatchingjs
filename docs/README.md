@@ -1,21 +1,17 @@
 # FuzzyMatchingJS
 
-## Requirements
-For browsers, see the `.browserslistrc` file at the base of the project or http://browserl.ist/?q=last+2+versions.
-For node, see https://github.com/nodejs/LTS.
-
 ## Usage
 
 ### Script tag
 It's just one simple script tag to get all the functionality:
 ```html
-<script type="text/javascript" src="fuzzymatching.min.js"></script>
+<script type="text/javascript" src="fuzzymatching.umd.js"></script>
 ```
 
 ### Import as a module
 Easily done using an [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import):
 ```javascript
-import { fuzzyMatching } from 'fuzzymatchingjs';
+import fuzzyMatching from 'fuzzymatchingjs';
 ```
 
 ### Matching on Strings
