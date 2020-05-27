@@ -14,7 +14,7 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../index').fuzzyMatching;
+import fuzzyMatching from '../src/index';
 
 describe('Fuzzy Matching Confidence', () => {
   describe('Getting a Confidence Score for a pattern match', () => {
@@ -26,4 +26,3 @@ describe('Fuzzy Matching Confidence', () => {
     });
   });
 });
-

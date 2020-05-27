@@ -79,9 +79,9 @@ function matchBitapOfText(text, pattern, loc = 0, options) {
       if (d === 0) {
         rd[j] = ((rd[j + 1] << 1) | 1) & charMatch;
       } else {
-        rd[j] = (((rd[j + 1] << 1) | 1) & charMatch) |
-                (((lastRd[j + 1] | lastRd[j]) << 1) | 1) |
-                lastRd[j + 1];
+        rd[j] = (((rd[j + 1] << 1) | 1) & charMatch)
+                | (((lastRd[j + 1] | lastRd[j]) << 1) | 1)
+                | lastRd[j + 1];
       }
       if (rd[j] & matchmask) {
         const score = matchBitapScore(d, j - 1, loc, pattern, matchDistance);
@@ -122,9 +122,11 @@ function fuzzyMatchPattern(text, pattern, loc = 0, options) {
   const location = Math.max(0, Math.min(loc, text.length));
   if (text === pattern) {
     return 0;
-  } else if (!text.length) {
+  }
+  if (!text.length) {
     return -1;
-  } else if (text.substring(loc, loc + pattern.length) === pattern) {
+  }
+  if (text.substring(loc, loc + pattern.length) === pattern) {
     return location;
   }
   return matchBitapOfText(text, pattern, location, options);
