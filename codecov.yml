@@ -2,5 +2,3 @@ coverage:
   parsers:
     javascript:
       enable_partials: yes
-fixes:
-  - "/home/circleci/project/dist/::src/lib/"

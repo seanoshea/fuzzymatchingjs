@@ -14,7 +14,7 @@
   limitations under the License.
 */
 
-const fuzzyMatching = require('../dist/fuzzymatchingjs.cjs');
+import fuzzyMatching from '../src/index';
 
 describe('Fuzzy Matching Confidence', () => {
   describe('Getting a Confidence Score for a pattern match', () => {
