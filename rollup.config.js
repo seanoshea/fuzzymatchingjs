@@ -29,7 +29,6 @@ export default [
     ],
     plugins: [
       terser({
-        include: [/^.+\.min\.js$/, '*esm*'],
         output: {
           comments: 'all',
         },

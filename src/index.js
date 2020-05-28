@@ -16,6 +16,6 @@
 
 import fuzzyMatching from './lib/fuzzymatching';
 
-fuzzyMatching.version = '0.4.0';
+fuzzyMatching.version = '0.4.1';
 
 export default fuzzyMatching;
