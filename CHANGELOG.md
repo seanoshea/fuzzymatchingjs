@@ -1,3 +1,8 @@
+# Version 0.4.1
+- README updates.
+- Updated dev dependencies in package.json.
+- Updates for package.json
+
 # Version 0.4.0
 - Dusting off the project after a long hiatus. Upgrades to development libraries.
 - Moving away from webpack and towards rollup.
