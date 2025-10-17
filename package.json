@@ -1,6 +1,6 @@
 {
   "name": "fuzzymatchingjs",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "String Fuzzy Matching",
   "type": "module",
   "main": "dist/fuzzymatchingjs.cjs.js",
