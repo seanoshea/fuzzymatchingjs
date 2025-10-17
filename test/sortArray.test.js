@@ -26,7 +26,10 @@ describe('Fuzzy Sorting An Array if Strings', () => {
       expect(first.length).toEqual(3);
     });
     test('a more complex array test', () => {
-      const second = fuzzyMatching.sortArrayByFuzzyMatchPattern(['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'], 'on');
+      const second = fuzzyMatching.sortArrayByFuzzyMatchPattern(
+        ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'],
+        'on'
+      );
       expect(second[0]).toEqual('one');
       expect(second[1]).toEqual('nine');
       expect(second[2]).toEqual('two');

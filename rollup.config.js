@@ -1,8 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import babel from '@rollup/plugin-babel';
-import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import { terser } from '@rollup/plugin-terser';
+import pkg from './package.json' assert { type: 'json' };
 
 export default [
   {
@@ -15,14 +14,10 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      babel({
-        exclude: ['node_modules/**'],
-      }),
     ],
   },
   {
     input: 'src/index.js',
-    external: ['ms'],
     output: [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'es' },
@@ -32,9 +27,6 @@ export default [
         output: {
           comments: 'all',
         },
-      }),
-      babel({
-        exclude: ['node_modules/**'],
       }),
     ],
   },

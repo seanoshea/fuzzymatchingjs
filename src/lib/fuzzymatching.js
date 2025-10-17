@@ -41,10 +41,16 @@ function matchBitapOfText(text, pattern, loc = 0, options) {
   let scoreThreshold = matchThreshold;
   let bestLoc = text.indexOf(pattern, loc);
   if (bestLoc !== -1) {
-    scoreThreshold = Math.min(matchBitapScore(0, bestLoc, loc, pattern, matchDistance), scoreThreshold);
+    scoreThreshold = Math.min(
+      matchBitapScore(0, bestLoc, loc, pattern, matchDistance),
+      scoreThreshold
+    );
     bestLoc = text.lastIndexOf(pattern, loc + pattern.length);
     if (bestLoc !== -1) {
-      scoreThreshold = Math.min(matchBitapScore(0, bestLoc, loc, pattern, matchDistance), scoreThreshold);
+      scoreThreshold = Math.min(
+        matchBitapScore(0, bestLoc, loc, pattern, matchDistance),
+        scoreThreshold
+      );
     }
   }
   const matchmask = 1 << (pattern.length - 1);
