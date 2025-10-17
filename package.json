@@ -81,14 +81,14 @@
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.23",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "husky": "^9.0.11",
-    "jest": "^29.7.0",
+    "jest": "^30.2.0",
     "rollup": "^4.9.6"
   },
   "author": "Sean O'Shea <oshea.ie@gmail.com>",
