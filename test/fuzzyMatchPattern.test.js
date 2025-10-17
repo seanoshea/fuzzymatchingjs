@@ -77,7 +77,7 @@ describe('Fuzzy Matching Patterns', () => {
         'a large block of text with no occurance of the last two letters of the alphabet',
         'yz',
         0,
-        options
+        options,
       )).toEqual(-1);
       expect(fuzzyMatching.fuzzyMatchPattern('Brevity is the soul of wit', 'Hamlet', 0, options)).toEqual(-1);
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'g', 0, options)).toEqual(-1);
@@ -88,10 +88,11 @@ describe('Fuzzy Matching Patterns', () => {
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'g', 0, options)).toEqual(-1);
       options.threshold = 0.8;
       expect(fuzzyMatching.fuzzyMatchPattern(
-        '\'Twas brillig, and the slithy toves Did gyre and gimble in the wabe. All mimsy were the borogroves, And the mome raths outgrabe.',
+        '\'Twas brillig, and the slithy toves Did gyre and gimble in the wabe. '
+        + 'All mimsy were the borogroves, And the mome raths outgrabe.',
         'slimy tools',
         30,
-        options
+        options,
       )).toEqual(23);
     });
   });

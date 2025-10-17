@@ -43,13 +43,13 @@ function matchBitapOfText(text, pattern, loc = 0, options) {
   if (bestLoc !== -1) {
     scoreThreshold = Math.min(
       matchBitapScore(0, bestLoc, loc, pattern, matchDistance),
-      scoreThreshold
+      scoreThreshold,
     );
     bestLoc = text.lastIndexOf(pattern, loc + pattern.length);
     if (bestLoc !== -1) {
       scoreThreshold = Math.min(
         matchBitapScore(0, bestLoc, loc, pattern, matchDistance),
-        scoreThreshold
+        scoreThreshold,
       );
     }
   }
@@ -117,7 +117,9 @@ function matchBitapOfText(text, pattern, loc = 0, options) {
  * @param {String} loc - defines the approximate position in the text where the pattern is expected to be found.
  * @param {Object} options
  * @param {String} [options.distance] - Defines where in the text to look for the pattern.
- * @param {String} [options.threshold] - Defines how strict you want to be when fuzzy matching. A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose understanding of whether a match has been found.
+ * @param {String} [options.threshold] - Defines how strict you want to be when fuzzy matching.
+ *   A value of 0.0 is equivalent to an exact match. A value of 1.0 indicates a very loose
+ *   understanding of whether a match has been found.
  * @since 0.1.0
  * @return An Int indicating where the fuzzy matched pattern can be found in the text.
  */
@@ -145,7 +147,9 @@ function fuzzyMatchPattern(text, pattern, loc = 0, options) {
  * @param {Int} loc - the index in the element from which to search.
  * @param {Int} distance - determines how close the match must be to the fuzzy location. See `loc` parameter.
  * @since 0.1.0
- * @return A number which indicates how confident we are that the pattern can be found in the host string. A low value (0.001) indicates that the pattern is likely to be found. A high value (0.999) indicates that the pattern is not likely to be found.
+ * @return A number which indicates how confident we are that the pattern can be found in the
+ *   host string. A low value (0.001) indicates that the pattern is likely to be found.
+ *   A high value (0.999) indicates that the pattern is not likely to be found.
  */
 function confidenceScore(text, pattern, loc = 0, distance = 1000) {
   // start at a low threshold and work our way up
