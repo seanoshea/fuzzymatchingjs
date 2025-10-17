@@ -1,0 +1,28 @@
+# Development files
+test/
+.github/
+docs/
+coverage/
+generated-docs/
+
+# Configuration files
+.eslintrc.json
+.nvmrc
+.npmrc
+rollup.config.js
+jest.config.js
+
+# Build artifacts
+node_modules/
+*.log
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore

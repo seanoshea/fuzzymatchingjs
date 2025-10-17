@@ -1,0 +1,13 @@
+# Modern browsers
+> 1%
+last 2 versions
+not dead
+
+# Node.js
+node >= 20
+
+# Specific browsers
+Chrome >= 90
+Firefox >= 88
+Safari >= 14
+Edge >= 90

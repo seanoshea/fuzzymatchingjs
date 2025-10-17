@@ -1,0 +1,20 @@
+{
+  "port": 8080,
+  "serve": true,
+  "output": "generated-docs",
+  "theme": "material",
+  "name": "FuzzyMatchingJS",
+  "language": "en-US",
+  "hideGenerator": true,
+  "disableCoverage": false,
+  "disableSourceCode": false,
+  "disableGraph": false,
+  "disableTemplateTab": true,
+  "disableStyleTab": true,
+  "disableDomTree": true,
+  "includes": "./docs/",
+  "includesName": "Additional Documentation",
+  "customFavicon": false,
+  "gaID": "",
+  "gaSite": "auto"
+}

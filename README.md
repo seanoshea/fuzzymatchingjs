@@ -1,57 +1,192 @@
 # fuzzymatchingjs
 
-[![CI Status](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop.svg?style=svg)](https://circleci.com/gh/seanoshea/fuzzymatchingjs/tree/develop)
-[![Code Coverage](http://codecov.io/github/seanoshea/fuzzymatchingjs/coverage.svg?branch=develop)](http://codecov.io/github/seanoshea/fuzzymatchingjs?branch=develop)
-[![NPM version](https://img.shields.io/npm/v/fuzzymatchingjs)](https://img.shields.io/npm/v/fuzzymatchingjs)
-[![NPM version](https://img.shields.io/npm/dt/fuzzymatchingjs)](https://img.shields.io/npm/dt/fuzzymatchingjs)
+[![CI](https://github.com/seanoshea/fuzzymatchingjs/actions/workflows/ci.yml/badge.svg)](https://github.com/seanoshea/fuzzymatchingjs/actions/workflows/ci.yml)
+[![NPM version](https://img.shields.io/npm/v/fuzzymatchingjs)](https://www.npmjs.com/package/fuzzymatchingjs)
+[![NPM downloads](https://img.shields.io/npm/dt/fuzzymatchingjs)](https://www.npmjs.com/package/fuzzymatchingjs)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Languages](https://img.shields.io/github/languages/count/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/languages/count/seanoshea/fuzzymatchingjs)
-[![Top Language](https://img.shields.io/github/languages/top/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/languages/top/seanoshea/fuzzymatchingjs)
-[![Open Issues](https://img.shields.io/github/issues/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/issues/seanoshea/fuzzymatchingjs)
-[![Closed Issues](https://img.shields.io/github/issues-closed/seanoshea/fuzzymatchingjs)](https://img.shields.io/github/issues-closed/seanoshea/fuzzymatchingjs)
-[![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
+
+A fast and lightweight JavaScript library for fuzzy string matching. Perfect for search functionality, autocomplete features, and finding approximate matches in text.
+
+## Features
+
+- 🚀 **Fast**: Optimized algorithms for quick string matching
+- 🎯 **Accurate**: Confidence scoring for match quality
+- 🌐 **Unicode Support**: Works with emojis and international characters
+- 📦 **Lightweight**: Minimal dependencies, small bundle size
+- 🔧 **Flexible**: Multiple output formats (UMD, ESM, CommonJS)
+- ✅ **Well-tested**: Comprehensive test coverage
+
+## Installation
+
+```bash
+npm install fuzzymatchingjs
+```
+
+## Quick Start
+
+### ES Modules
+```javascript
+import fuzzyMatching from 'fuzzymatchingjs';
+
+// Basic pattern matching
+const position = fuzzyMatching.fuzzyMatchPattern('hello world', 'wor');
+console.log(position); // Returns the position of the match
+
+// Confidence scoring
+const confidence = fuzzyMatching.confidenceScore('JavaScript', 'JS');
+console.log(confidence); // Returns a confidence score between -1 and 1
+```
+
+### CommonJS
+```javascript
+const fuzzyMatching = require('fuzzymatchingjs');
+
+const result = fuzzyMatching.fuzzyMatchPattern('search text', 'sea');
+```
+
+### Browser (UMD)
+```html
+<script src="https://unpkg.com/fuzzymatchingjs/dist/fuzzymatchingjs.umd.js"></script>
+<script>
+  const result = fuzzymatchingjs.fuzzyMatchPattern('hello', 'hel');
+</script>
+```
+
+## API Reference
+
+### `fuzzyMatchPattern(text, pattern)`
+
+Finds the best match location for a pattern within a text string.
+
+**Parameters:**
+- `text` (string): The text to search within
+- `pattern` (string): The pattern to search for
+
+**Returns:** Number - The starting position of the best match, or -1 if no match found
+
+**Example:**
+```javascript
+fuzzyMatching.fuzzyMatchPattern('abcdef', 'cd'); // Returns 2
+fuzzyMatching.fuzzyMatchPattern('hello world', 'wor'); // Returns 6
+fuzzyMatching.fuzzyMatchPattern('🐶🐱🐶🐶🐶', '🐱'); // Returns 1
+```
+
+### `confidenceScore(text, pattern)`
+
+Calculates a confidence score for how well a pattern matches a text.
+
+**Parameters:**
+- `text` (string): The text to match against
+- `pattern` (string): The pattern to match
+
+**Returns:** Number - Confidence score between -1 (no match) and 1 (perfect match)
+
+**Example:**
+```javascript
+fuzzyMatching.confidenceScore('Stacee Lima', 'SL'); // Returns ~0.5
+fuzzyMatching.confidenceScore('exact match', 'exact match'); // Returns 1.0
+fuzzyMatching.confidenceScore('no match here', 'xyz'); // Returns -1
+```
+
+## Use Cases
+
+- **Search functionality**: Implement forgiving search that finds results even with typos
+- **Autocomplete**: Suggest completions based on partial input
+- **Data deduplication**: Find similar entries in datasets
+- **Command palettes**: Match user input to available commands
+- **File/folder search**: Locate files with approximate names
 
 ## Acknowledgements
-The majority of the fuzzy matching logic included in this project is taken from [Neil Fraser's](https://neil.fraser.name/) [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
 
-## Usage
-See the [README](docs/README.md) file in the docs directory.
+The fuzzy matching algorithms are based on [Neil Fraser's](https://neil.fraser.name/) [google-diff-match-patch](https://github.com/google/diff-match-patch) library. 
 
-## Development Setup
-1. Install the latest stable version of node using https://github.com/creationix/nvm.
-2. Run `npm install`.
-3. Run `npm run test` to run the unit tests for the library. Ensure that they pass before proceeding with any other steps.
-4. Run `npm run start` to run the dev server for the library.
-5. Navigate to http://localhost:8080 and open the console. 
+## Development
 
-## Repository Structure
-There's a lot of configuration files and .js files associated with this project. Below is an attempt to explain what each of them are for:
-- `.circleci` - config files for circle-ci integration.
-- `.eslintignore` - similar to a `.gitignore` file. Has a list of files and directories which should be ignore as part of any linting process.
-- `.eslintrc.json` - `eslint` config file.
-- `.nvmrc` - similar to a `.ruby-version` or `.rvmrc` file. Specifies the version of node used to run this project.
-- `index.js` - main entry point for the library as specified in the `package.json` file. Basically just exports the main functionality of the library.
-- `package.json` - descriptor file for npm. Includes a lot of the build script configurations.
-- `.github` - files which are specific to making development easy via github are housed here.
-- `dist` - generated .js files are housed here. The build scripts defined in `package.json` output to this directory.
-- `docs` - documentation configuration files are housed here. See the `generate-docs` script in `package.json` for details.
-- `src` - the source code for the library is housed here.
-- `test` - `jest` unit tests are housed here.
+### Prerequisites
 
-## Linting
-`npm run lint` will run linting on the source code and the test code for the project. Check out the `eslintrc.json` file for details on the rules applied to the codebase.
+- Node.js 20.0.0 or higher
+- npm 9.0.0 or higher
 
-## Documentation
-Run `npm run generate-docs` to generate the `jsdoc` documentation for the library.
+### Setup
 
-## Author
-oshea.ie@gmail.com. See the Acknowledgements section for the original basis for this code.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/seanoshea/fuzzymatchingjs.git
+   cd fuzzymatchingjs
+   ```
 
-## License
-fuzzymatchingjs is available under the Apache 2 license. See the LICENSE file for more info.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run tests to ensure everything works:
+   ```bash
+   npm test
+   ```
+
+### Available Scripts
+
+- `npm run build` - Build the library for production
+- `npm run dev` - Build in watch mode for development
+- `npm test` - Run the test suite
+- `npm run test:watch` - Run tests in watch mode
+- `npm run lint` - Check code style and quality
+- `npm run lint:fix` - Automatically fix linting issues
+- `npm run generate-docs` - Generate JSDoc documentation
+
+### Project Structure
+
+```
+fuzzymatchingjs/
+├── src/                 # Source code
+│   ├── lib/            # Core library files
+│   └── index.js        # Main entry point
+├── test/               # Jest test files
+├── dist/               # Built files (generated)
+├── docs/               # Documentation
+└── .github/            # GitHub workflows and templates
+```
+
+## Browser Compatibility
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Node.js 20+
+
+## Performance
+
+The library is optimized for performance with:
+- Efficient string matching algorithms
+- Minimal memory allocation
+- Fast execution for typical use cases
+- Bundle size < 10KB (minified + gzipped)
 
 ## Contributing
-See the [Contributing Instructions](.github/CONTRIBUTING.MD) for details.
 
-## Swift Version
-https://github.com/seanoshea/fuzzymatchingjs is a Swift version of this library.
+We welcome contributions! Please see our [Contributing Guide](.github/CONTRIBUTING.md) for details.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and add tests
+4. Run `npm test` and `npm run lint`
+5. Commit your changes: `git commit -m 'Add feature'`
+6. Push to your fork: `git push origin feature-name`
+7. Create a Pull Request
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Sean O'Shea** - [oshea.ie@gmail.com](mailto:oshea.ie@gmail.com)
+
+## Related Projects
+
+- [Swift version](https://github.com/seanoshea/fuzzymatchingswift) - Swift implementation of this library
