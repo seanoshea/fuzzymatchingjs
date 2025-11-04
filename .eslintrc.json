@@ -26,6 +26,16 @@
     "max-len": ["error", { "code": 120 }],
     "default-param-last": "off",
     "import/extensions": "off",
-    "import/no-unresolved": ["error", { "ignore": ["../dist/"] }]
-  }
+    "import/no-unresolved": ["error", { "ignore": ["../dist/"] }],
+    "comma-dangle": ["error", "only-multiline"],
+    "operator-linebreak": ["error", "after"]
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.js"],
+      "rules": {
+        "import/no-named-as-default-member": "off"
+      }
+    }
+  ]
 }

@@ -49,6 +49,9 @@ documentation/
 *.swp
 *.swo
 
+# Linting
+.eslintcache
+
 # OS
 .DS_Store
 Thumbs.db
