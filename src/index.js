@@ -24,10 +24,10 @@ import fuzzyMatching from './lib/fuzzymatching';
  * @property {string} version - The version number of the library
  */
 
-fuzzyMatching.version = '0.5.0';
+fuzzyMatching.version = '0.6.0';
 
 export default fuzzyMatching;
 
 // Named exports
 export const { fuzzyMatchPattern, confidenceScore, sortArrayByFuzzyMatchPattern } = fuzzyMatching;
-export const version = fuzzyMatching.version;
+export const { version } = fuzzyMatching;
