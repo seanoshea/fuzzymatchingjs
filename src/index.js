@@ -16,6 +16,18 @@
 
 import fuzzyMatching from './lib/fuzzymatching';
 
-fuzzyMatching.version = '0.5.0';
+/**
+ * @typedef {Object} FuzzyMatchingModule
+ * @property {Function} fuzzyMatchPattern - Finds the best match location for a pattern within text
+ * @property {Function} confidenceScore - Calculates a confidence score for pattern matching
+ * @property {Function} sortArrayByFuzzyMatchPattern - Sorts an array by fuzzy match quality
+ * @property {string} version - The version number of the library
+ */
+
+fuzzyMatching.version = '0.6.0';
 
 export default fuzzyMatching;
+
+// Named exports
+export const { fuzzyMatchPattern, confidenceScore, sortArrayByFuzzyMatchPattern } = fuzzyMatching;
+export const { version } = fuzzyMatching;

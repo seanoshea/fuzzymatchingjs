@@ -73,12 +73,14 @@ describe('Fuzzy Matching Patterns', () => {
     test('should return the correct set of results when using a strong threshold', () => {
       const options = { threshold: 0, distance: 1000 };
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'abcdef', 0, options)).toEqual(0);
-      expect(fuzzyMatching.fuzzyMatchPattern(
-        'a large block of text with no occurance of the last two letters of the alphabet',
-        'yz',
-        0,
-        options,
-      )).toEqual(-1);
+      expect(
+        fuzzyMatching.fuzzyMatchPattern(
+          'a large block of text with no occurance of the last two letters of the alphabet',
+          'yz',
+          0,
+          options
+        )
+      ).toEqual(-1);
       expect(fuzzyMatching.fuzzyMatchPattern('Brevity is the soul of wit', 'Hamlet', 0, options)).toEqual(-1);
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'g', 0, options)).toEqual(-1);
     });
@@ -87,13 +89,87 @@ describe('Fuzzy Matching Patterns', () => {
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'abcdef', 0, options)).toEqual(0);
       expect(fuzzyMatching.fuzzyMatchPattern('abcdef', 'g', 0, options)).toEqual(-1);
       options.threshold = 0.8;
-      expect(fuzzyMatching.fuzzyMatchPattern(
-        '\'Twas brillig, and the slithy toves Did gyre and gimble in the wabe. '
-        + 'All mimsy were the borogroves, And the mome raths outgrabe.',
-        'slimy tools',
-        30,
-        options,
-      )).toEqual(23);
+      // eslint-disable-next-line quotes
+      const text =
+        "'Twas brillig, and the slithy toves Did gyre and gimble in the wabe. " + // eslint-disable-line quotes
+        'All mimsy were the borogroves, And the mome raths outgrabe.';
+      expect(fuzzyMatching.fuzzyMatchPattern(text, 'slimy tools', 30, options)).toEqual(23);
+    });
+  });
+  describe('Distance constraint testing', () => {
+    test('should respect distance parameter to limit match range', () => {
+      // Test with tight distance constraint
+      const options = { threshold: 0.5, distance: 10 };
+      // world is > 10 chars away
+      expect(fuzzyMatching.fuzzyMatchPattern('hello world', 'world', 0, options)).toEqual(-1);
+      // world is 0 chars away from 6
+      expect(fuzzyMatching.fuzzyMatchPattern('hello world', 'world', 6, options)).toEqual(6);
+
+      // Test with larger distance constraint
+      const looseOptions = { threshold: 0.5, distance: 100 };
+      expect(fuzzyMatching.fuzzyMatchPattern('hello world', 'world', 0, looseOptions)).toEqual(6);
+    });
+  });
+  describe('Complex pattern matching scenarios', () => {
+    test('should handle patterns with repeated characters', () => {
+      expect(fuzzyMatching.fuzzyMatchPattern('aaaaaa', 'aaa')).toEqual(0);
+      expect(fuzzyMatching.fuzzyMatchPattern('aaaaaa', 'aaaa')).toEqual(0);
+    });
+
+    test('should handle very long text with pattern near the end', () => {
+      const longText = `${'a'.repeat(100)}needle${'a'.repeat(100)}`;
+      expect(fuzzyMatching.fuzzyMatchPattern(longText, 'needle')).toEqual(100);
+    });
+
+    test('should handle different location hints affecting the match', () => {
+      const text = 'abcdefghijklmnopqrstuvwxyz';
+      expect(fuzzyMatching.fuzzyMatchPattern(text, 'xyz', 0)).toEqual(23);
+      expect(fuzzyMatching.fuzzyMatchPattern(text, 'xyz', 23)).toEqual(23);
+      expect(fuzzyMatching.fuzzyMatchPattern(text, 'abc', 0)).toEqual(0);
+    });
+  });
+  describe('Edge cases for branching', () => {
+    test('should handle early breaks in bitap algorithm', () => {
+      // Tight threshold forces early termination in some branches
+      const options = { threshold: 0.0, distance: 1000 };
+      expect(fuzzyMatching.fuzzyMatchPattern('abcdefghij', 'xyz', 0, options)).toEqual(-1);
+
+      // Pattern at beginning with strict match
+      expect(fuzzyMatching.fuzzyMatchPattern('abcdefghij', 'abc', 0, options)).toEqual(0);
+    });
+
+    test('should test location parameter near match boundaries', () => {
+      // Match with location at end of text
+      expect(fuzzyMatching.fuzzyMatchPattern('hello', 'lo', 4)).toEqual(3);
+
+      // Location beyond text length (should be clamped)
+      expect(fuzzyMatching.fuzzyMatchPattern('hello', 'lo', 100)).toEqual(3);
+
+      // Location at 0
+      expect(fuzzyMatching.fuzzyMatchPattern('hello', 'hello', 0)).toEqual(0);
+    });
+
+    test('should handle bestLoc adjustment when location changes during matching', () => {
+      // This triggers the branch at line 117 where bestLoc > loc
+      // Using medium distance and threshold to trigger bitap's internal adjustments
+      const options = { threshold: 0.6, distance: 1000 };
+      expect(fuzzyMatching.fuzzyMatchPattern('abcdefghijklmnopqrstuvwxyz', 'mno', 10, options)).toEqual(12);
+
+      // Test with pattern that causes location adjustments
+      expect(fuzzyMatching.fuzzyMatchPattern('testing testing', 'ting', 5)).toEqual(3);
+
+      // Long text with pattern causing branch exploration
+      const longStr = 'abcabcabcabcabc';
+      expect(fuzzyMatching.fuzzyMatchPattern(longStr, 'cab', 5)).toEqual(5);
+    });
+
+    test('should handle different distance constraints affecting match logic', () => {
+      // Very small distance should constrain search heavily
+      const tightDist = { threshold: 0.5, distance: 5 };
+      expect(fuzzyMatching.fuzzyMatchPattern('0123456789', '789', 0, tightDist)).toEqual(-1);
+
+      // With location hint closer to the pattern
+      expect(fuzzyMatching.fuzzyMatchPattern('0123456789', '789', 7, tightDist)).toEqual(7);
     });
   });
 });
